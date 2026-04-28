@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Title updated dynamically by product.js -->
+  <title>WebSurprise Store</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/websurprise_dp.png">
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       ANNOUNCEMENT BAR
+  ═══════════════════════════════════════════════════════ -->
+  <div class="announcement-bar">
+    <span class="ann-full">⚡ Delivered in 3–24 hours &nbsp;·&nbsp; 🔒 100% Private</span><span class="ann-short">⚡
+      3–24hr Delivery &nbsp;·&nbsp; 🔒 Private</span>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════════ -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="WebSurprise" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#templates">Templates</a></li>
+      <li><a href="https://www.instagram.com/websurprise.in" target="_blank">Instagram</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PRODUCT PAGE CONTENT
+       Everything below is filled in dynamically by product.js
+  ═══════════════════════════════════════════════════════ -->
+  <div class="page-offset">
+    <div class="product-page" id="productContent">
+
+      <!-- Back button -->
+      <a href="index.html" class="back-btn">
+        ← Back to Templates
+      </a>
+
+
+      <!-- ── MEDIA BOX: Thumbnail + YouTube Video ─────────── -->
+      <!-- Both exist simultaneously — JS shows/hides them -->
+      <div class="media-box">
+
+        <!-- Product thumbnail (16:9 image you upload) -->
+        <img class="media-thumbnail" id="mediaThumbnail" src="" alt="Template Preview" />
+
+        <!-- YouTube iframe — hidden by default, shown on "Live Demo" click -->
+        <!-- src is set dynamically by product.js to prevent autoplay on load -->
+        <iframe class="media-video" id="mediaVideo" src="" title="Template Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen loading="lazy"></iframe>
+
+      </div>
+
+      <!-- ── MEDIA BUTTONS ROW ────────────────────────────── -->
+      <!-- Two buttons: video demo toggle + view live site -->
+      <div class="media-btn-row">
+
+        <!-- Toggle: shows YouTube video or thumbnail -->
+        <button class="demo-toggle-btn" id="demoToggleBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5,3 19,12 5,21" />
+          </svg>
+          ▶ Video Demo
+        </button>
+
+      </div>
+
+
+      <!-- ── PRODUCT INFO ──────────────────────────────────── -->
+      <div class="product-info fade-in">
+        <!-- Badges row: category + NEW + Limited Offer — filled by product.js -->
+        <div class="product-badges-row">
+          <div id="productBadge" class="card-badge product-badge"></div>
+          <!-- NEW badge — shown only if isNew: true in templates.js -->
+          <div id="newBadge" class="badge-new" style="display:none;">✨ NEW</div>
+          <!-- Limited Offer badge — shown only if limitedOffer: true in templates.js -->
+          <div id="offerBadge" class="badge-offer" style="display:none;">🔥 Limited Offer</div>
+        </div>
+
+        <!-- Template name — filled by product.js -->
+        <h1 class="product-name" id="productName"></h1>
+
+        <!-- Description — filled by product.js -->
+        <p class="product-desc" id="productDesc"></p>
+      </div>
+
+
+      <!-- ── WHAT'S INCLUDED ──────────────────────────────── -->
+      <div class="features-box fade-in">
+        <h3>✅ What's Included</h3>
+        <!-- Feature items injected here by product.js -->
+        <div class="features-list" id="featuresList"></div>
+      </div>
+
+
+      <!-- ── PRICING + CTA BOX ────────────────────────────── -->
+      <div class="pricing-box fade-in">
+
+        <!-- Limited offer banner — shown/hidden by product.js -->
+        <div class="pricing-limited-banner" id="limitedBadge" style="display:none;">
+          🔥 Limited Time Offer — Grab it before price goes up!
+        </div>
+
+        <!-- Price row -->
+        <div class="pricing-main-row">
+          <div class="pricing-left">
+            <div class="pricing-label">Only</div>
+            <div class="pricing-price-row">
+              <!-- Current price — filled by product.js -->
+              <span class="pricing-current" id="priceDisplay"></span>
+              <!-- Strikethrough original price — filled by product.js -->
+              <span class="pricing-original" id="originalPrice"></span>
+            </div>
+            <!-- Save badge — filled by product.js -->
+            <div class="pricing-save-badge" id="saveBadge"></div>
+          </div>
+
+          <div class="pricing-includes">
+            <div class="pricing-include-item">✓ Personalised with your details</div>
+            <div class="pricing-include-item">✓ Live shareable link</div>
+            <div class="pricing-include-item">✓ Delivered instantly</div>
+            <div class="pricing-include-item">✓ Mobile responsive</div>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="pricing-cta-group">
+
+          <!-- Primary: Customize — opens customize page -->
+          <a class="btn-customize" id="customizeBtn" href="#" target="_blank">
+            ✨ Customize &amp; Buy — <span id="priceDisplayBtn"></span>
+          </a>
+
+          <!-- Secondary: View Live Preview -->
+          <a class="btn-view-live" id="viewLiveBtn" href="#" target="_blank">
+            🌐 View Live Preview
+          </a>
+
+        </div>
+
+        <!-- Trust micro-copy -->
+        <div class="pricing-trust">
+          🔒 Secure &nbsp;·&nbsp; ⚡ Instant &nbsp;·&nbsp; 💖 100% Personalised
+        </div>
+
+      </div>
+
+
+      <!-- ── TRUST NOTE ─────────────────────────────────────── -->
+      <div class="trust-note fade-in">
+        🔑 <strong>How it works:</strong> Pay via UPI → send screenshot on WhatsApp → receive your secret code within 0–30 minutes → enter it, customise with your own photos &amp; messages → hit Publish and get your live link <strong>instantly.</strong> No waiting. No middleman.
+      </div>
+
+
+
+      <!-- ── FAQ SECTION ──────────────────────────────────── -->
+      <div class="faq-section fade-in" style="margin-top:48px;">
+        <h2 style="font-size:1.4rem; margin-bottom:24px; font-family:'Poppins',sans-serif; font-weight:800;">
+          ❓ Frequently Asked Questions
+        </h2>
+
+        <!-- ── FAQ ITEM — click to expand ── -->
+        <!-- To add a new FAQ: copy one .faq-item block and edit the question/answer -->
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>💸 Can I get a refund after purchasing?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Since your unique access code is sent immediately after payment verification, we are unable to offer refunds once the code has been issued. We recommend viewing the full live demo before purchasing. Any questions? Message us on WhatsApp before you pay — we are happy to help. 💖
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>⏱️ How long until I get my access code?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            We send your unique one-time code within <strong>0 to 30 minutes</strong> of receiving your payment screenshot on WhatsApp. Once you have the code, customise and publish — your website goes live <strong>instantly</strong>.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>💳 How do I pay?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Pay via any <strong>UPI app</strong> — GPay, PhonePe, Paytm — on the customize page. Then send the payment screenshot to our WhatsApp number (shown on the customize page). We verify and send your code within 30 minutes. Simple, full payment, no splits.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>🔒 Is my personal content private?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Completely. You upload your photos and messages <strong>directly into your own website</strong> — we never ask you to send us anything personal. No middleman, no exposure. Your memories go straight from you to the website. Zero risk.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>🌐 How long will the live website stay active?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Your live website stays active and accessible for <strong>up to 1 full year</strong> from the day you publish it. They can open the link, revisit it and share it any time. After 1 year, message us on WhatsApp to discuss renewal.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>🔑 What if my code doesn't work?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Each code is unique and one-time use. If you face any issue entering your code, message us immediately on WhatsApp with your payment screenshot and we will resolve it within minutes. We are always here.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>📱 Will it look good on mobile?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            100% yes. Every website is fully mobile-responsive and looks stunning on any screen — phone, tablet and laptop. Since most surprises are opened on phone, mobile experience is always our top priority.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── EMOTIONAL SECTION BELOW ─────────────────────── -->
+      <div style="margin-top:48px; text-align:center;" class="fade-in">
+        <div class="section-label" style="margin-bottom:12px;">The moment that matters</div>
+        <h2 style="font-size:clamp(1.4rem,3vw,2rem); margin-bottom:14px;">
+          They will not expect this.<br>
+          <span class="accent">That is exactly the point.</span>
+        </h2>
+        <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.8; max-width:520px; margin:0 auto;">
+          Imagine them opening their phone and finding a whole website — just for them.
+          Their photos. Your words. A song that means everything.
+          And they just break down. Happy tears. That is what we build. 🥺
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" style="display:inline-block; margin-bottom:14px;">
+          <img src="images/logo.jpg" alt="WebSurprise" class="footer-logo-img">
+        </a>
+        <p>Personalised surprise websites that make your loved ones feel like the most special person in the world.</p>
+        <a href="https://www.instagram.com/websurprise.in" target="_blank" class="footer-insta">
+          📸 @websurprise.in
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="index.html#templates">✨ All Templates</a></li>
+          <li><a href="https://ig.me/m/websurprise.in" target="_blank">💬 Message Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Occasions</h4>
+        <ul>
+          <li><a href="index.html">🎂 Birthday</a></li>
+          <li><a href="index.html">💍 Anniversary</a></li>
+          <li><a href="index.html">💌 Proposal</a></li>
+          <li><a href="index.html">❤️ Love & Miss You</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025–2026 WebSurprise. Made with 💖 for every surprise.</p>
+      <p>🔒 Your privacy is always protected.</p>
+    </div>
+  </footer>
+
+
+  <!-- Floating Instagram DM button -->
+  <a href="https://ig.me/m/websurprise.in" target="_blank" class="float-insta">
+    <span class="float-tooltip">Message us!</span>
+    📸
+  </a>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SCRIPTS — load order matters!
+       1. templates.js (data — contains TEMPLATES, CATEGORIES etc.)
+       2. product.js   (logic — reads data, renders page)
+  ═══════════════════════════════════════════════════════ -->
+  <script src="js/templates.js"></script>
+  <script src="js/product.js"></script>
+
+</body>
+
+</html>

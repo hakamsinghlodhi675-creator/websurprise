@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WebSurprise Store — Surprise Websites for Every Occasion</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/websurprise_dp.png">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       ANNOUNCEMENT BAR
+       Edit the text here to change the top strip message
+  ═══════════════════════════════════════════════════════ -->
+  <div class="announcement-bar">
+    <span class="ann-full">⚡ Get your personalised website instantly — no waiting, no middleman ✨</span>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <!-- Logo -->
+    <a href="index.html" class="nav-logo">
+  <img src="images/logo.jpg" alt="WebSurprise" class="nav-logo-img">
+</a>
+
+    <!-- Desktop links (hidden on mobile) -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#templates">Templates</a></li>
+      <li><a href="https://www.instagram.com/websurprise.in" target="_blank">Instagram</a></li>
+    </ul>
+
+    <!-- Right actions -->
+    <div class="nav-right">
+      <!-- Theme toggle — 🌙 dark / ☀️ light -->
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       HERO SECTION
+       Edit headline, subtext and CTA button text here
+  ═══════════════════════════════════════════════════════ -->
+  <section class="hero page-offset">
+    <!-- Particle starfield canvas — animated by JS -->
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="hero-content">
+      <!-- Small pill label above headline -->
+      <div class="hero-eyebrow">
+        ✨ Personalised Surprise Websites
+      </div>
+
+      <!-- Main headline — wrap words in <span class="accent"> for pink gradient -->
+      <h1>
+        Give Them a Moment<br>
+        <span class="accent">They Never Forget.</span> 
+      </h1>
+
+      <!-- Subtext below headline -->
+      <p class="hero-sub">
+        We build personalised surprise websites for birthdays, anniversaries, proposals and more — 
+        the kind that make people feel like the most loved person in the world.
+      </p>
+
+      <!-- CTA button — scrolls to templates section -->
+      <a href="#templates" class="hero-cta" id="exploreCta">
+        Explore Templates
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Scroll hint arrow at bottom -->
+    <div class="scroll-hint">
+      <span>↓</span>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FILTER BAR + TEMPLATES GRID
+       Templates are rendered automatically from templates.js
+       Add new templates in js/templates.js — no HTML needed
+  ═══════════════════════════════════════════════════════ -->
+  <section id="templates" style="padding-top: 72px;">
+
+    <!-- Filter bar — buttons built by JS from CATEGORIES in templates.js -->
+    <div class="filter-section">
+      <div class="filter-label">Browse by occasion</div>
+      <div class="filter-bar" id="filterBar">
+        <!-- Filter buttons injected here by main.js -->
+      </div>
+    </div>
+
+    <!-- Templates section heading -->
+    <div class="templates-section">
+      <div class="section-heading fade-in">
+        <div class="section-label">Our Collection</div>
+        <h2>Surprise Websites that <span class="accent">Make People Cry</span></h2>
+        <p>Every template is built with emotion, personalisation and love at the heart of it.</p>
+      </div>
+
+      <!-- Template cards injected here by main.js -->
+      <div class="templates-grid" id="templatesGrid"></div>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       STATS BAR
+       Edit stats values in js/templates.js → STATS array
+  ═══════════════════════════════════════════════════════ -->
+  <section class="stats-section">
+    <div class="stats-grid" id="statsGrid">
+      <!-- Stats injected by main.js from templates.js STATS array -->
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       EMOTIONAL SECTION — WHY WEBSURPRISE
+  ═══════════════════════════════════════════════════════ -->
+  <section style="padding: 80px 5%; text-align:center; background: var(--bg-2); border-top: 1px solid var(--border);">
+    <div style="max-width:640px; margin:0 auto;" class="fade-in">
+      <div class="section-label" style="margin-bottom:16px;">Why WebSurprise</div>
+      <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem); margin-bottom:20px;">
+        Flowers die. Cakes get eaten.<br>
+        <span class="accent">But this stays forever.</span>
+      </h2>
+      <p style="color:var(--text-secondary); font-size:0.98rem; line-height:1.85; margin-bottom:36px;">
+        A birthday text lasts 2 seconds. A surprise website? They will open it again and again for years. 
+        Show them how much they mean to you — not with something ordinary, but with something 
+        that makes them genuinely break down in happy tears.
+      </p>
+
+      <!-- Three emotional promise cards -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:16px; text-align:left;">
+
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:22px;" class="fade-in">
+          <div style="font-size:1.8rem; margin-bottom:10px;">🥺</div>
+          <div style="font-family:'Poppins',sans-serif; font-weight:800; margin-bottom:6px; font-size:0.95rem;">Deeply Personal</div>
+          <div style="color:var(--text-secondary); font-size:0.83rem; line-height:1.6;">You add your own photos, names and messages — every website is 100% built around your love story.</div>
+        </div>
+
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:22px;" class="fade-in">
+          <div style="font-size:1.8rem; margin-bottom:10px;">⚡</div>
+          <div style="font-family:'Poppins',sans-serif; font-weight:800; margin-bottom:6px; font-size:0.95rem;">Instant — No Waiting</div>
+          <div style="color:var(--text-secondary); font-size:0.83rem; line-height:1.6;">Pay, get your code in 0–30 minutes, customise yourself and publish — your website is live instantly.</div>
+        </div>
+
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:22px;" class="fade-in">
+          <div style="font-size:1.8rem; margin-bottom:10px;">🔑</div>
+          <div style="font-family:'Poppins',sans-serif; font-weight:800; margin-bottom:6px; font-size:0.95rem;">You're In Full Control</div>
+          <div style="color:var(--text-secondary); font-size:0.83rem; line-height:1.6;">You upload your own photos and messages directly — no one else ever sees your personal content. Ever.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ══════════════════════════════════════════════════════
+       HOW IT WORKS
+       Edit steps below to change the process description
+  ═══════════════════════════════════════════════════════ -->
+  <section class="how-section">
+    <div class="how-inner">
+      <div class="fade-in" style="text-align:center; margin-bottom:52px;">
+        <div class="section-label">Simple Process</div>
+        <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem);">
+          How It <span class="accent">Works</span>
+        </h2>
+        <p style="color:var(--text-secondary); margin-top:10px; font-size:0.95rem;">
+          Four simple steps between you and the moment they break down in happy tears.
+        </p>
+      </div>
+
+      <div class="how-steps">
+
+        <!-- Step 1 -->
+        <div class="how-step fade-in">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <div class="step-icon">🎨</div>
+            <h3>Pick Your Template</h3>
+            <p>Browse our collection, find the template that feels right, and hit <strong>Customize</strong>. You'll see a full live preview before deciding — so you know exactly what they'll see.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="how-step fade-in">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <div class="step-icon">💳</div>
+            <h3>Pay &amp; Send Screenshot</h3>
+            <p>Pay via <strong>UPI — GPay, PhonePe, Paytm</strong> — in the customize page. Then send the payment screenshot to our WhatsApp. That's it. Simple and safe.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="how-step fade-in">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <div class="step-icon">🔑</div>
+            <h3>Receive Your Secret Code</h3>
+            <p>Within <strong>0–30 minutes</strong>, we send you a unique one-time access code on WhatsApp. Enter it on the customize page — the personalisation editor unlocks just for you.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="how-step fade-in">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <div class="step-icon">😭</div>
+            <h3>Customise, Publish &amp; Watch Them Cry</h3>
+            <p>Add their name, your photos, your message — everything that makes it personal. Hit <strong>Publish</strong> and get your live link instantly. Share it at midnight and watch them break down in happy tears. 🥺</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PRIVACY PROMISE
+       Edit privacy cards below
+  ═══════════════════════════════════════════════════════ -->
+  <section class="privacy-section">
+    <div class="privacy-inner">
+      <div class="fade-in" style="text-align:center; margin-bottom:44px;">
+        <div class="section-label" style="color:rgba(255,255,255,0.4);">Your Control</div>
+        <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem); color:white;">
+          You're In Complete <span style="color:var(--yellow);">Control</span>
+        </h2>
+        <p style="color:rgba(255,255,255,0.55); margin-top:10px; font-size:0.95rem; max-width:520px; margin-left:auto; margin-right:auto;">
+          You upload your own photos and messages directly — no middleman, no sharing your personal content with anyone.
+          Your memories stay yours. Always.
+        </p>
+      </div>
+
+      <div class="privacy-grid fade-in">
+
+        <div class="privacy-card">
+          <div class="privacy-icon">🔑</div>
+          <h4>One-Time Secret Code</h4>
+          <p>Your access code works only once and only for you — no one else can use it or access your customisation.</p>
+        </div>
+
+        <div class="privacy-card">
+          <div class="privacy-icon">📸</div>
+          <h4>You Upload Directly</h4>
+          <p>Your photos and messages go straight into your website — you never have to share them with anyone else.</p>
+        </div>
+
+        <div class="privacy-card">
+          <div class="privacy-icon">🔒</div>
+          <h4>No Middleman</h4>
+          <p>Unlike other services, we never ask you to send us your personal photos or private messages. Zero exposure.</p>
+        </div>
+
+        <div class="privacy-card">
+          <div class="privacy-icon">⚡</div>
+          <h4>Instant & Independent</h4>
+          <p>Once you hit Publish, your personalised link is live immediately — no waiting on anyone to build it for you.</p>
+        </div>
+
+        <div class="privacy-card">
+          <div class="privacy-icon">🌐</div>
+          <h4>Your Link, Forever</h4>
+          <p>Your live website stays active for up to 1 full year — they can open it, revisit it and feel loved every time.</p>
+        </div>
+
+        <div class="privacy-card">
+          <div class="privacy-icon">✅</div>
+          <h4>UPI — Safe Payment</h4>
+          <p>Pay securely via GPay, PhonePe or Paytm. Send screenshot, get code. Clean, transparent, no surprises.</p>
+        </div>
+
+      </div>
+
+      <div class="privacy-promise fade-in">
+        🤝 <strong>Our Promise:</strong> Your personal content never passes through our hands.
+        You stay in control. Your surprise stays a surprise. <strong>Always.</strong>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       ABOUT SECTION
+       Edit your personal description below
+  ═══════════════════════════════════════════════════════ -->
+  <section class="about-section">
+    <div class="about-inner fade-in">
+      <div class="about-avatar">👨‍💻</div>
+      <div class="about-content">
+        <div class="section-label">About Me</div>
+        <h2>Hi, I'm the person<br>behind <span class="accent">WebSurprise</span> 👋</h2>
+        <p>
+          I'm a web developer who believes that the most powerful gift you can give someone
+          is a moment they will carry forever. I built WebSurprise so that anyone —
+          even without technical knowledge — can create something truly beautiful for the people they love.
+        </p>
+        <p>
+          Every template is crafted with real emotion and cinematic detail.
+          You bring the love — the names, the photos, the memories.
+          The website brings it to life. And they will never forget it for the rest of their life. 💖
+        </p>
+        <a href="https://ig.me/m/websurprise.in" target="_blank" class="about-cta">
+          📸 Say Hello on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FAQ — HOMEPAGE
+       Add/remove questions by editing .faq-item blocks below
+  ═══════════════════════════════════════════════════════ -->
+  <section class="home-faq-section">
+    <div class="home-faq-inner">
+      <div class="fade-in" style="text-align:center; margin-bottom:44px;">
+        <div class="section-label">Got Questions?</div>
+        <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem);">
+          Frequently Asked <span class="accent">Questions</span>
+        </h2>
+      </div>
+
+      <div class="home-faq-grid fade-in">
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleHomeFaq(this)">
+            <span>💸 Do you offer refunds?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Since the access code is sent and the customisation window is unlocked specifically for you, we are unable to offer refunds once the code has been issued. We encourage you to view the live demo before purchasing — and reach out on WhatsApp with any questions before you pay. 💖
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleHomeFaq(this)">
+            <span>⏱️ How long does it take to get my code?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            We send your unique access code within <strong>0 to 30 minutes</strong> of receiving your payment screenshot on WhatsApp. Once you have the code, you customise and publish instantly — your website goes live the moment you hit Publish.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleHomeFaq(this)">
+            <span>💰 How do I pay?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Pay via any <strong>UPI app</strong> — GPay, PhonePe, Paytm and more — directly on the customize page. Then send the payment screenshot to our WhatsApp. We verify and send your code within 30 minutes. Full payment upfront, no advance/split needed.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleHomeFaq(this)">
+            <span>🔒 Is my personal content private?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            100% yes — and this is what makes us different. You upload your photos and messages <strong>directly into your website yourself</strong>. We never ask you to send us your personal content. No middleman. No exposure. Your memories stay completely yours.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleHomeFaq(this)">
+            <span>🌐 How long does the live site stay active?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Your live website stays accessible for <strong>up to 1 full year</strong> from the day you publish it.
+            They can open it, revisit it and share it any time. After 1 year, message us on WhatsApp to discuss renewal.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleHomeFaq(this)">
+            <span>📱 Will it look good on mobile?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            100% yes — every website is fully mobile responsive and looks stunning on any screen.
+            Since most surprises are opened on a phone, mobile experience is always our top priority.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" style="display:inline-block; margin-bottom:14px;">
+          <img src="images/logo.jpg" alt="WebSurprise" class="footer-logo-img">
+        </a>
+        <p>
+          Personalised surprise websites that make your loved ones feel like the most special 
+          person in the world — for every occasion that deserves more than just a text.
+        </p>
+        <!-- Instagram profile link -->
+        <a href="https://www.instagram.com/websurprise.in" target="_blank" class="footer-insta">
+          📸 @websurprise.in
+        </a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="#templates">✨ All Templates</a></li>
+          <li><a href="https://www.instagram.com/websurprise.in" target="_blank">📸 Instagram</a></li>
+          <li><a href="https://ig.me/m/websurprise.in" target="_blank">💬 Message Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Occasions</h4>
+        <ul>
+          <li><a href="#">🎂 Birthday</a></li>
+          <li><a href="#">💍 Anniversary</a></li>
+          <li><a href="#">💌 Proposal</a></li>
+          <li><a href="#">💐 Mother's / Father's Day</a></li>
+          <li><a href="#">🎓 Farewell</a></li>
+          <li><a href="#">❤️ Love & Miss You</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025–2026 WebSurprise. Made with 💖 for every surprise.</p>
+      <p>🔒 Your privacy is always protected.</p>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FLOATING INSTAGRAM DM BUTTON
+       Always visible at bottom-right corner
+  ═══════════════════════════════════════════════════════ -->
+  <a href="https://ig.me/m/websurprise.in" target="_blank" class="float-insta">
+    <span class="float-tooltip">Message us!</span>
+    📸
+  </a>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SCRIPTS — load order matters!
+       1. templates.js  (data)
+       2. main.js       (logic)
+  ═══════════════════════════════════════════════════════ -->
+  <script src="js/templates.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
